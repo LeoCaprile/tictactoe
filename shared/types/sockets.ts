@@ -6,7 +6,7 @@ export interface ClientToServerEvents {
 		roomId: string,
 		checkRoom: (roomExistance: RoomExists) => void,
 	) => void;
-	roomstatus: RoomStatus;
+	roomstatus: (status: RoomStatus) => void;
 }
 
 export interface ServerToClientEvents {

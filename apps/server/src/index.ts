@@ -46,8 +46,12 @@ io.on("connection", (socket) => {
 			}
 		}
 
+		socket.on("roomstatus", (status) => {
+			io.to(roomId).emit("roomstatus", status);
+		});
+
 		socket.on("disconnect", () => {
-			socket.leave(roomId);
+			io.to(roomId).emit("roomstatus", "waiting");
 		});
 	});
 });

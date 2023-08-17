@@ -42,31 +42,43 @@ const JoinPage = () => {
 		<main
 			className={"flex min-h-screen flex-col items-center justify-center p-24"}
 		>
-			<h1 className="text-6xl font-bold mb-5">Connect four</h1>
-			<h2 className="mb-5">
-				This is your room id share it, when a player joins the game will start
-			</h2>
-			<input
-				className="bg-black text-white border-2 border-white rounded-md p-2"
-				onChange={onRoomIdChange}
-				value={roomId}
-				disabled={roomStatus === "connected"}
-			/>
-			<button type="button" onClick={checkRoom}>
-				Join Room
-			</button>
-			<p className={RoomStatusColor[roomStatus]}>{RoomStatusMsg[roomStatus]}</p>
-			<small className="text-red-500">
-				{roomExists === "not exist" && "La sala no existe"}
-				{roomExists === "full" && "La sala esta llena"}
-			</small>
+			{roomStatus === "playing" ? (
+				<>juego</>
+			) : (
+				<>
+					<h1 className="text-6xl font-bold mb-5">Connect four</h1>
+					<h2 className="mb-5">
+						Type or copy the room id to join a room and start playing
+					</h2>
+					<input
+						className="bg-black text-white border-2 border-white rounded-md p-2"
+						onChange={onRoomIdChange}
+						value={roomId}
+						disabled={roomStatus === "connected"}
+					/>
+					<button
+						type="button"
+						onClick={checkRoom}
+						disabled={roomStatus === "connected"}
+					>
+						Join Room
+					</button>
+					<p className={RoomStatusColor[roomStatus]}>
+						{RoomStatusMsg[roomStatus]}
+					</p>
+					<small className="text-red-500">
+						{roomExists === "not exist" && "La sala no existe"}
+						{roomExists === "full" && "La sala esta llena"}
+					</small>
+					<small>
+						{roomStatus === "connected"
+							? "2/2 waiting for host to start"
+							: "1/2"}
+					</small>
+				</>
+			)}
 		</main>
 	);
 };
 
 export default JoinPage;
-
-/*{
-    concept: 'Esto es u,
-    types: ['general', 'deductible']
-}*/
