@@ -6,6 +6,12 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/apps/*": ["apps/*"],
+      "@/libs/*": ["libs/*"],
+      "@/shared/*": ["shared/*"],
+    }
   }
 }
