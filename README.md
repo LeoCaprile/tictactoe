@@ -3,7 +3,7 @@
 A multiplayer tic-tac-toe game using websockets and socket.io framework to handle websockets.
 This game was created with the purpose of learn about websockets and socket.io framework, the code may be messy and could've made a lot better (I'll try to refactor it in the mean time).
 
-![preview](https://s11.gifyu.com/images/SgswO.gif)
+![preview](https://github.com/LeoCaprile/tictactoe/blob/main/github/preview.gif)
 
 ## How to install it
  
