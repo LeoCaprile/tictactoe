@@ -1,12 +1,14 @@
 import { socket } from "@/apps/client/src/services/socket";
 import { useEffect, useState } from "react";
 import { RoomExists, RoomStatus } from "@/shared/types/room";
+import Board from "../components/Board";
 
 const RoomStatusMsg = {
 	error: "Something went wrong",
 	waiting: "Join a room to start playing",
 	connected: "Player connected, starting game",
 	playing: "Game started",
+	gameover: "Game over",
 };
 
 const RoomStatusColor = {
@@ -42,11 +44,11 @@ const JoinPage = () => {
 		<main
 			className={"flex min-h-screen flex-col items-center justify-center p-24"}
 		>
+			<h1 className="text-6xl font-bold mb-5">Tic tac toe</h1>
 			{roomStatus === "playing" ? (
-				<>juego</>
+				<Board playerSymbol="o" />
 			) : (
 				<>
-					<h1 className="text-6xl font-bold mb-5">Connect four</h1>
 					<h2 className="mb-5">
 						Type or copy the room id to join a room and start playing
 					</h2>

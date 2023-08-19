@@ -46,6 +46,14 @@ io.on("connection", (socket) => {
 			}
 		}
 
+		socket.on("gamestate", (state) => {
+			io.to(roomId).emit("gamestate", state);
+		});
+
+		socket.on("playeroneturn", (id, symbol) => {
+			io.to(roomId).emit("playertwoturn", id, symbol);
+		});
+
 		socket.on("roomstatus", (status) => {
 			io.to(roomId).emit("roomstatus", status);
 		});

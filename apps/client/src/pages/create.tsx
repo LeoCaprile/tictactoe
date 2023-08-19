@@ -2,6 +2,7 @@ import { socket } from "@/apps/client/src/services/socket";
 import { useEffect, useState } from "react";
 import { generateShortUuid } from "custom-uuid";
 import { RoomStatus } from "@/shared/types/room";
+import Board from "../components/Board";
 
 export const getServerSideProps = async () => {
 	const id = generateShortUuid();
@@ -44,11 +45,11 @@ const CreatePage = ({ id }: { id: string }) => {
 		<main
 			className={"flex min-h-screen flex-col items-center justify-center p-24"}
 		>
+			<h1 className="text-6xl font-bold mb-5">Tic tac toe</h1>
 			{roomStatus === "playing" ? (
-				<>juego</>
+				<Board playerSymbol="x" />
 			) : (
 				<>
-					<h1 className="text-6xl font-bold mb-5">Connect four</h1>
 					<h2 className="mb-5">
 						This is your room id share it, when a player joins the game will
 						start
